@@ -2,25 +2,25 @@
 /* Load_control
  --------------
  8.09.2012 - YM
- Contrôleur de charge. 
+ Contrôleur de charge V2. 
  Le relai coupe la puissance, lorsque le seuil inférieur est atteint. 
  Note: carte Stalker = "Arduino Pro 3,3V 8 MHz"
  */
 
-#define VERSION "1.20"
+#define VERSION "2.00"
 #include <SerialLCD.h>
 #include <SoftwareSerial.h>
 
 // initialise la librairie LCD série
-// connexion série sur ports 11 et 12
-SerialLCD slcd(11,12);
+// connexion série sur ports 6 et 7
+SerialLCD slcd(6,7);
 
 // détermnine les pins E/S
 const int Buzzer = 3;
-const int RelayPow = 2;
-const int Led = 7;
 const int Btn = 4;
 const int BtnStart = 5;
+const int RelayPow = 2;
+const int Led = 1;
 
 // analogique
 const int I_read = 0; // conversion I->A/D
@@ -55,8 +55,8 @@ void setup()
   slcd.begin();
   // Message de démarrage sur le LCD.
   slcd.print("Load Ctrl " VERSION);
+  init_file();
 }
-
 
 // Monitoring sur PC seriel
 void serial_write()

@@ -1,5 +1,5 @@
-/* LC_Screen
-   ---------
+/* LCD_Screen
+   ----------
    Module contenant des routines d'affichage
 */
 
